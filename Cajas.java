@@ -1,6 +1,8 @@
 package uno;
 
-public class Cajas {
+import java.util.Iterator;
+
+public class Cajas{
 	private int _ancho;
 	private int _largo;
 	private int _elemento;
@@ -26,7 +28,7 @@ public class Cajas {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime *result + _ancho;
+		result = prime * result + _ancho;
 		result = prime * result + _largo;
 		return result;
 	}
@@ -49,5 +51,9 @@ public class Cajas {
 		return true;
 		
 	}
-
+	int area() {
+		return 1;
+	}
+	
+	
 }

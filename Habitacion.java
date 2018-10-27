@@ -1,6 +1,7 @@
 package uno;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class Habitacion {
 	private int _ancho;
@@ -97,7 +98,51 @@ public class Habitacion {
 		return true;
 	}
 	
-
+	public int cantCajas() {
+		return _cajas.size();
+	}
+	public int reacomodarCajas() {
+		return 1;
+	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("ancho=");
+		builder.append(_ancho);
+		builder.append(" ,_Largo=");
+		builder.append(_largo);
+		builder.append("\n");
+		
+		for(int i=0; i<_largo;i++) {
+			for(int j=0;j<_ancho;j++) {
+				builder.append(_habitacion[i][j]? 1:0);
+			}
+			builder.append("\n");
+		}
+		return builder.toString();
+	}
+	public class cajasIterator<Cajas> implements Iterator<Cajas>{
+		private int index;
+		public cajasIterator() {
+			index=0;
+		}
+		@Override
+		public boolean hasNext() {
+			return index < cantCajas();
+		}
+		@Override
+		public Cajas next() {
+			return (Cajas) _cajas.get(index++);
+		}
+		@Override
+		public void remove() {
+			_cajas.remove(index-1);
+		}
+		
+	}
+	public Iterator<Cajas> iterator(){
+		return new cajasIterator<Cajas>();
+	}
 
 }

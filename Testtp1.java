@@ -1,8 +1,8 @@
 package uno;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
 import org.junit.Before;
+import org.junit.After;
+import org.junit.Test;
 
 public class Testtp1 {
 	private Habitacion h1,h2,h3;
