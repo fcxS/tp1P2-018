@@ -122,7 +122,8 @@ public class Habitacion {
 		}
 		return builder.toString();
 	}
-	public class cajasIterator<Cajas> implements Iterator<Cajas>{
+	private class cajasIterator<Cajas> implements Iterator<Cajas>{
+		
 		private int index;
 		public cajasIterator() {
 			index=0;
@@ -144,5 +145,24 @@ public class Habitacion {
 	public Iterator<Cajas> iterator(){
 		return new cajasIterator<Cajas>();
 	}
+	public static void main(String[] args) {
+		Habitacion h1 = new Habitacion(11,20);
+		h1.agregarCaja(3, 3, 4);
+		h1.agregarCaja(3, 4, 4);
+		h1.agregarCaja(3, 5, 4);
+		System.out.println(h1);
+		
+		
+		Iterator<Cajas> it = h1.iterator();
+		while(it.hasNext()) {
+			System.out.println(">" + it.next());
+		}
+		
+		//System.out.println(h1.toString());
+		//System.out.println(h1.iterator().toString());
+		//System.out.println(h1.toString());
+	}
+	
+	
 
 }

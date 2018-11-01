@@ -1,6 +1,9 @@
 package uno;
 
 import org.junit.Before;
+
+import java.util.Iterator;
+
 import org.junit.After;
 import org.junit.Test;
 
@@ -44,6 +47,21 @@ public class Testtp1 {
 	public void testReacomodarCajas() {
 		int cant = h3.cantCajas();
 		assertTrue(h1.cantCajas()== cant);
+	}
+	public static void main(String[] args) {
+		Habitacion h1 = new Habitacion(10,20);
+		h1.agregarCaja(3, 3, 4);
+		h1.agregarCaja(3, 4, 4);
+		h1.agregarCaja(3, 5, 4);
+		
+		for(Cajas c: h1) {
+			System.out.println(c);
+		}
+
+	}
+	Iterator<Cajas> it = h1.iterator();
+	while(it.hasNext()) {
+		System.out.println(it.next());
 	}
 
 }
